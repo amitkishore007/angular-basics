@@ -1,0 +1,30 @@
+<h1>Data Binding</h1>
+<p>1.String Interpolation</p>
+<p >{{ title }}</p>
+<p>2.Property Binding</p>
+<button [disabled]="isDisabled">Click me <span [innerText]="isDisabled"></span></button>
+<p>3.Event Binding</p>
+<button (click)="onCreateText()">Add new Text</button>
+<p>{{ customText }}</p>
+<input type="text" (input)="onEnterText($event)"  placeholder="Enter text here"/>
+<p>{{ inputText }}</p>
+
+<p>Tow Way Event Binding</p>
+
+<input type="text" placeholder="Enter Two Way Event binding text..." [(ngModel)]="serverText" />
+<span>{{ serverText }}</span>
+
+
+<hr>
+<p>*ngIf</p>
+<button (click)="onButtonClick()">Click to add text using ng if</button>
+<p *ngIf="elementCreated">This element is added using *ngif & server text is {{ serverText }}</p>
+
+
+<hr>
+<p>*ngIf-else</p>
+<button (click)="onButtonClick2()">Click to add text using ng if-else</button>
+<p *ngIf="elementCreated2; else generateText">This element is added using *ngif-else & server text is {{ serverText }}</p>
+<ng-template #generateText>
+    <p>No Text Generated</p>   
+</ng-template>
